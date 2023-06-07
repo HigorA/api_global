@@ -1,0 +1,5 @@
+INSERT INTO endereco (id, unidade_id, cep, uf, bairro, logradouro, numero, complemento) VALUES (1, 1, '01904943', 'SP', 'Centro', 'Rua Bela Vista', 123, 'Jardim das Rosas');
+INSERT INTO endereco (id, unidade_id, cep, uf, bairro, logradouro, numero, complemento) VALUES (2, 2, '0154832', 'SP', 'Centro', 'Rua Santa Cruz', 456, 'Jardim dos Anjos');
+INSERT INTO endereco (id, unidade_id, cep, uf, bairro, logradouro, numero, complemento) VALUES (3, 3, '0145620', 'SP', 'Zona Sul', 'Avenida Brooklin', 789, 'Jardim Lídia');
+INSERT INTO endereco (id, unidade_id, cep, uf, bairro, logradouro, numero, complemento) VALUES (4, 4, '04919043', 'SP', 'Zona Sul', 'Jardim Ângela', 987, 'Menininha');
+INSERT INTO endereco (id, unidade_id, cep, uf, bairro, logradouro, numero, complemento) VALUES (5, 5, '04943190', 'SP', 'Zona Sul', 'Jardim dos Reis', 135, 'Jardim Turquesa');

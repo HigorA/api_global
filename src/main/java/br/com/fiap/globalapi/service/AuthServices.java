@@ -52,7 +52,7 @@ public class AuthServices {
         Optional<User> user = userRepository.findByLogin(username);
         TokenVO tokenResponse;
         if (user.isPresent()) {
-            tokenResponse = tokenProvider.createAcessToken(username, user.get().getRoles());
+            tokenResponse = tokenProvider.createAcessToken(username, user.get().getRoles(), user.get().getId());
         } else {
             throw new UsernameNotFoundException("Username " + username + " not found.");
         }

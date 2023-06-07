@@ -8,6 +8,7 @@ import br.com.fiap.globalapi.repository.OngRepository;
 import br.com.fiap.globalapi.repository.UnidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -22,9 +23,12 @@ public class UnidadeService {
     @Autowired
     private OngRepository ongRepository;
 
+    public ResponseEntity<Unidade> findById(Long unidadeId) {
+        return ResponseEntity.ok().body(unidadeRepository.findById(unidadeId).orElseThrow());
+    }
 
-    public ResponseEntity<Unidade> findAll(Long ongId) {
-        return ResponseEntity.ok().body(unidadeRepository.findAllByOng(ongId));
+    public ResponseEntity<Page<List<Unidade>>> findAll(Long ongId, Pageable pageable) {
+        return ResponseEntity.ok().body(unidadeRepository.findAllByOng(ongId, pageable));
     }
 
     public ResponseEntity<Unidade> save(Long ongId, UnidadeVO unidadeVO) {

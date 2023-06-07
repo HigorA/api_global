@@ -19,16 +19,16 @@ public class Unidade implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne(mappedBy = "unidade", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "unidade", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Endereco endereco;
     private String status;
     @Column(name = "business_hours")
     private String horarioDeFuncionamento;
 
-    @OneToMany(mappedBy = "unidade", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "unidade", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Contato> contato;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ong_id")
     @JsonIgnore
     private Ong ong;

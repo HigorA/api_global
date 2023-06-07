@@ -1,19 +1,17 @@
 package br.com.fiap.globalapi.service;
 
 import br.com.fiap.globalapi.entities.Ong;
-import br.com.fiap.globalapi.entities.Unidade;
 import br.com.fiap.globalapi.entities.User;
+import br.com.fiap.globalapi.entities.vo.ListagemOngVO;
 import br.com.fiap.globalapi.entities.vo.OngVO;
 import br.com.fiap.globalapi.repository.OngRepository;
 import br.com.fiap.globalapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class OngServices {
@@ -29,8 +27,12 @@ public class OngServices {
         this.userRepository = userRepository;
     }
 
-    public ResponseEntity<Ong> findAll(Long id) {
-        return ResponseEntity.ok().body(ongRepository.findAllByUserId(id));
+    public ResponseEntity<Ong> findAllByUserId(Long id) {
+        return ResponseEntity.ok().body(ongRepository.findByUserId(id));
+    }
+
+    public ResponseEntity<Page<ListagemOngVO>> findAll(Pageable pageable) {
+        return ResponseEntity.ok().body(ongRepository.findAll(pageable).map(ListagemOngVO::new));
     }
 
     public ResponseEntity<Ong> save(Long id, OngVO ongVO) {

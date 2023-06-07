@@ -47,7 +47,7 @@ public class User implements UserDetails, Serializable {
     )
     private List<Permission> permissions;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @PrimaryKeyJoinColumn
     @JsonIgnore
     private Ong ong;

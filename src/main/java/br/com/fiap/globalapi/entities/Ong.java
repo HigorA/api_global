@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -22,9 +21,9 @@ public class Ong implements Serializable {
     private Long id;
     @Column(name = "ong_name")
     private String razaoSocial;
-    @OneToMany(mappedBy = "ong", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "ong", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Unidade> unidades;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "users_id")
     @JsonIgnore
     private User user;

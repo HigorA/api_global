@@ -20,6 +20,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import java.util.HashMap;
 import java.util.Map;
 
+@SuppressWarnings("all")
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig {

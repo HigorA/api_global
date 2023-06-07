@@ -8,5 +8,5 @@ import org.springframework.data.repository.query.Param;
 public interface OngRepository extends JpaRepository<Ong, Long> {
 
     @Query("SELECT o FROM Ong o JOIN FETCH o.user WHERE o.user.id = :userId")
-    Ong findAllByUserId(@Param("userId") Long userId);
+    Ong findByUserId(@Param("userId") Long userId);
 }

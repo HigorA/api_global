@@ -2,10 +2,12 @@ package br.com.fiap.globalapi.service;
 
 import br.com.fiap.globalapi.entities.Ong;
 import br.com.fiap.globalapi.entities.Unidade;
+import br.com.fiap.globalapi.entities.vo.ListagemUnidadeVO;
 import br.com.fiap.globalapi.entities.vo.UnidadeVO;
 import br.com.fiap.globalapi.repository.OngRepository;
 import br.com.fiap.globalapi.repository.UnidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -35,4 +37,5 @@ public class UnidadeService {
         unidade = unidadeRepository.save(unidade);
         return ResponseEntity.status(HttpStatus.CREATED).body(unidade);
     }
+
 }

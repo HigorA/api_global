@@ -13,6 +13,8 @@
 <code>cd global-devops</code><br/>
 <code>docker-compose up -d --build</code>
 
+<p><b>ATENÇÂO: VERIFIQUE O ARQUIVO application.properties, dependendo da sua escolha, é necessário alterar os parametros de conexão!</b></p>
+
 <h2>Para Usar</h2>
 <p>Caso deseje testar a aplicação, é necessaŕio criar um novo usuário no endpoint:</p>
 <code>
